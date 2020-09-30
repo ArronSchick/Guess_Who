@@ -1,5 +1,6 @@
 require 'colorize'
 
+
 people = { 
     peter: {hair_color:'red'.colorize(:red), hair_style: 'short straight', eyes: 'blue'.colorize(:blue), nose: 'small', mouth: 'thin'}, 
     
@@ -8,7 +9,7 @@ people = {
     anna: {hair_color: 'red'.colorize(:red), hair_style: 'short curly', eyes: 'brown', nose: 'pointy', mouth: 'big'},
 
     sarah: {hair_color: 'red'.colorize(:red), hair_style: 'long wavy', eyes: 'green'.colorize(:green), nose: 'wide', mouth: 'big'},
-     
+    
     jessica: {hair_color: 'brown', hair_style: 'short straight', eyes: 'blue'.colorize(:blue), nose: 'small', mouth: 'thin'}, 
     
     john: {hair_color: 'brown', hair_style: 'long straight', eyes: 'brown', nose: 'big', mouth: 'small'},

@@ -1,21 +1,38 @@
-module Menu
-    require "tty-prompt"
+require_relative 'help'
+require_relative 'new_game'
+require_relative 'clear_kill'
+require "colorize"
+require "tty-prompt"
 
-    prompt = TTY::Prompt.new
+class Main_menu
+    include Clean_up
+    def commands
+        prompt = TTY::Prompt.new
 
-    choices = {newgame: 1, help: 2, quit: 3}
+        choices = {newgame: 1, help: 2, quit: 3}
+        puts '---------------------------------------------------------------------'
+        choice = prompt.select("What do you want to do?", choices)
+        puts '---------------------------------------------------------------------'
 
-    choice = prompt.select("What do you want to do?", choices)
-
-    case choice
-        when 1
-            puts 'new game'
-        when 2
-            puts 'help me'
-        when 3
-            puts 'Goodbye'
-            sleep(2)
+        case choice
+            when 1
+                new_game = Game_controller.new
+                new_game.start_game
+                puts 
+            when 2
+                help = Help_menu.new
+                help.instructions
+            when 3
+                puts '+---------+'.colorize(:green)
+                puts '| Goodbye |'.colorize(:green)
+                puts '+---------+'.colorize(:green)
+                sleep(1)
+                begin
+                    exit
+                end
+        end
     end
 end
 
-
+start = Main_menu.new
+start.commands
