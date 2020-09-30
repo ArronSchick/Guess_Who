@@ -1,8 +1,8 @@
 require_relative 'help'
 require_relative 'game_controller'
 require_relative 'clear_kill'
-require "colorize"
-require "tty-prompt"
+require 'colorize'
+require 'tty-prompt'
 
 class Main_menu
     def commands

@@ -1,3 +1,4 @@
+require_relative 'clear_kill'
 require 'colorize'
 require 'tty-prompt'
 
