@@ -1,5 +1,5 @@
 require_relative 'help'
-require_relative 'new_game'
+require_relative 'game_controller'
 require_relative 'clear_kill'
 require "colorize"
 require "tty-prompt"
