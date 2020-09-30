@@ -5,7 +5,6 @@ require "colorize"
 require "tty-prompt"
 
 class Main_menu
-    include Clean_up
     def commands
         prompt = TTY::Prompt.new
 
@@ -16,17 +15,20 @@ class Main_menu
 
         case choice
             when 1
+                Clean_up.clear_screen
                 new_game = Game_controller.new
                 new_game.start_game
-                puts 
             when 2
+                Clean_up.clear_screen
                 help = Help_menu.new
                 help.instructions
             when 3
+                Clean_up.clear_screen
                 puts '+---------+'.colorize(:green)
                 puts '| Goodbye |'.colorize(:green)
                 puts '+---------+'.colorize(:green)
                 sleep(1)
+                Clean_up.clear_screen
                 begin
                     exit
                 end

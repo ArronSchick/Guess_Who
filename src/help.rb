@@ -5,6 +5,7 @@ require 'io/console'
 
 class Help_menu
     def instructions
+        Clean_up.clear_screen
         puts '------------------------------------'
         puts 'This is the help section'
         puts
