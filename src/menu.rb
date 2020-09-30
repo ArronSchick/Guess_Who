@@ -6,24 +6,21 @@ require "tty-prompt"
 
 class Main_menu
     def commands
+        Clean_up.clear_screen
         prompt = TTY::Prompt.new
 
         choices = {newgame: 1, help: 2, quit: 3}
         puts '---------------------------------------------------------------------'
         choice = prompt.select("What do you want to do?", choices)
-        puts '---------------------------------------------------------------------'
 
         case choice
             when 1
-                Clean_up.clear_screen
                 new_game = Game_controller.new
                 new_game.start_game
             when 2
-                Clean_up.clear_screen
                 help = Help_menu.new
                 help.instructions
             when 3
-                Clean_up.clear_screen
                 puts '+---------+'.colorize(:green)
                 puts '| Goodbye |'.colorize(:green)
                 puts '+---------+'.colorize(:green)

@@ -1,20 +1,27 @@
 require 'colorize'
 require 'tty-prompt'
-require 'io/console'
 
 
 class Help_menu
     def instructions
         Clean_up.clear_screen
-        puts '------------------------------------'
+        puts '---------------------------------------------------------------------'
         puts 'This is the help section'
         puts
-        puts '------------------------------------'
-        puts 'press (m) to return to main menu'
-        key = gets.chomp
-        if key == 'm'
-            start = Main_menu.new
-            start.commands
-        end
+        puts '---------------------------------------------------------------------'
+     
+        prompt = TTY::Prompt.new
+
+        choices = {Main_menu: 1}
+        puts '---------------------------------------------------------------------'
+        choice = prompt.select("Return to main menu", choices)
+            if choice == 1
+                start = Main_menu.new
+                start.commands
+            else puts 'Something went wrong. Ending program'.colorize(:red)
+                begin
+                    exit
+                end
+            end
     end
 end
