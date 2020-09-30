@@ -6,7 +6,9 @@ require 'tty-prompt'
 class Game_controller
     def start_game
         Clean_up.clear_screen
-        user_name_prompt = New_game.new
-        user_name_prompt.user_name
+        game = New_game.new
+        game.user_name
+        game.display_table
+
     end
 end

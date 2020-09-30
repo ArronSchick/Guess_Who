@@ -3,14 +3,18 @@ require_relative 'game_controller'
 require_relative 'clear_kill'
 require 'colorize'
 require 'tty-prompt'
+require 'artii'
 
 class Main_menu
     def commands
         Clean_up.clear_screen
+        title = Artii::Base.new :font => 'slant'
+        puts title.asciify('Guess Who?')
         prompt = TTY::Prompt.new
 
         choices = {newgame: 1, help: 2, quit: 3}
         puts '---------------------------------------------------------------------'
+        puts ' '
         choice = prompt.select("What do you want to do?", choices)
 
         case choice
