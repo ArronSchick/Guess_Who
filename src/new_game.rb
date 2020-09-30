@@ -12,7 +12,10 @@ class New_game
     end
 
     def user_name
+        title = Artii::Base.new :font => 'slant'
+        puts title.asciify('Guess Who?')
         prompt = TTY::Prompt.new
+        puts '---------------------------------------------------------------------'
         @name = prompt.ask("What is your name?")
         Clean_up.clear_screen
     end
@@ -20,7 +23,10 @@ class New_game
     def display_table
         title = Artii::Base.new :font => 'slant'
         puts title.asciify('Guess Who?')
-        table = TTY::Table.new([['t','t'],['t','t']])
-        puts table.render(:ascii, alignment: [:center])
+        puts '---------------------------------------------------------------------'
+        header = ['this', 'is', 'a', 'test']
+        rows = [:separator, ['test', 'is', 'a', 'test'], :separator, ['things', 'diff', 'a', 'yes']]
+        table = TTY::Table.new(header, rows)
+        puts table.render(:ascii, alignment: [:center], width: 100, resize: true)
     end
 end

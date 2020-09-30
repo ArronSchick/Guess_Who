@@ -1,16 +1,17 @@
 require_relative 'clear_kill'
 require 'colorize'
 require 'tty-prompt'
+require 'tty-table'
+require 'artii'
 
 
 class Help_menu
     def instructions
         Clean_up.clear_screen
+        title = Artii::Base.new :font => 'slant'
+        puts title.asciify('Help')
         puts '---------------------------------------------------------------------'
-        puts 'This is the help section'
-        puts
-        puts '---------------------------------------------------------------------'
-     
+
         prompt = TTY::Prompt.new
 
         choices = {Main_menu: 1}
