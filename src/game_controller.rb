@@ -8,6 +8,7 @@ class Game_controller
         Clean_up.clear_screen
         game = New_game.new
         game.user_name
+        game.guess_counter
         game.display_table
 
     end
