@@ -12,7 +12,7 @@ class Main_menu
         puts title.asciify('Guess Who?')
         prompt = TTY::Prompt.new
 
-        choices = {newgame: 1, help: 2, quit: 3}
+        choices = {New_game: 1, Help: 2, Quit: 3}
         puts '---------------------------------------------------------------------'
         puts ' '
         choice = prompt.select("What do you want to do?", choices)

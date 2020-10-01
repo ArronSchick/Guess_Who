@@ -1,30 +1,29 @@
 require 'colorize'
-module Characters_all
-    def self.characters
-        people = { 
-            peter: {hair_color:'red'.colorize(:red), hair_style: 'short straight', eyes: 'blue'.colorize(:blue), nose: 'small', mouth: 'thin'}, 
-            
-            andrew: {hair_color: 'red'.colorize(:red), hair_style: 'long straight', eyes: 'brown', nose: 'big', mouth: 'small'},
 
-            anna: {hair_color: 'red'.colorize(:red), hair_style: 'short curly', eyes: 'brown', nose: 'pointy', mouth: 'big'},
 
-            sarah: {hair_color: 'red'.colorize(:red), hair_style: 'long wavy', eyes: 'green'.colorize(:green), nose: 'wide', mouth: 'big'},
-            
-            jessica: {hair_color: 'brown', hair_style: 'short straight', eyes: 'blue'.colorize(:blue), nose: 'small', mouth: 'thin'}, 
-            
-            john: {hair_color: 'brown', hair_style: 'long straight', eyes: 'brown', nose: 'big', mouth: 'small'},
 
-            terry: {hair_color: 'brown', hair_style: 'short curly', eyes: 'brown', nose: 'pointy', mouth: 'big'},
+people = [ 
+    {name: 'peter', hair_color:'red', hair_style: 'short straight', eyes: 'blue'.colorize(:blue)}, 
+    
+    {name: 'andrew', hair_color: 'red'.colorize(:red), hair_style: 'long straight', eyes: 'brown'},
 
-            amanda: {hair_color: 'brown', hair_style: 'long wavy', eyes: 'green'.colorize(:green), nose: 'wide', mouth: 'big'},
+    {name: 'anna', hair_color: 'red'.colorize(:red), hair_style: 'short curly', eyes: 'brown'},
 
-            linda: {hair_color: 'blond'.colorize(:yellow), hair_style: 'short straight', eyes: 'blue'.colorize(:blue), nose: 'small', mouth: 'thin'}, 
-            
-            scott: {hair_color: 'blond'.colorize(:yellow), hair_style: 'long straight', eyes: 'brown', nose: 'big', mouth: 'small'},
+    {name: 'sarah', hair_color: 'red'.colorize(:red), hair_style: 'long wavy', eyes: 'green'.colorize(:green)},
+    
+    {name: 'jessica', hair_color: 'brown', hair_style: 'short straight', eyes: 'blue'.colorize(:blue)}, 
+    
+    {name: 'John', hair_color: 'brown', hair_style: 'long straight', eyes: 'brown'},
 
-            charlie: {hair_color: 'blond'.colorize(:yellow), hair_style: 'short curly', eyes: 'brown', nose: 'pointy', mouth: 'big'},
+    {name: 'Terry', hair_color: 'brown', hair_style: 'short curly', eyes: 'brown'},
 
-            kate: {hair_color: 'blond'.colorize(:yellow), hair_style: 'long wavy', eyes: 'green'.colorize(:green), nose: 'wide', mouth: 'big'} 
-        }
-    end
-end
+    {name: 'Amanda', hair_color: 'brown', hair_style: 'long wavy', eyes: 'green'.colorize(:green)},
+
+    {name: 'Linda', hair_color: 'blond'.colorize(:yellow), hair_style: 'short straight', eyes: 'blue'.colorize(:blue)}, 
+    
+    {name: 'scott', hair_color: 'blond'.colorize(:yellow), hair_style: 'long straight', eyes: 'brown'},
+
+    {name: 'Charlie', hair_color: 'blond'.colorize(:yellow), hair_style: 'short curly', eyes: 'brown'},
+
+    {name: 'Kate', hair_color: 'blond'.colorize(:yellow), hair_style: 'long wavy', eyes: 'green'.colorize(:green)} 
+]
