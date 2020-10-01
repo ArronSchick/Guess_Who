@@ -6,4 +6,7 @@ module Clean_up
     def self.kill_instance
 
     end
+    def self.heading
+
+    end
 end
