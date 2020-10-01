@@ -7,13 +7,11 @@ require 'artii'
 
 class Main_menu
     def commands
-        Clean_up.clear_screen
-        title = Artii::Base.new :font => 'slant'
-        puts title.asciify('Guess Who?')
+        Clean_up.heading
         prompt = TTY::Prompt.new
 
         choices = {New_game: 1, Help: 2, Quit: 3}
-        puts '---------------------------------------------------------------------'
+        puts '-----------------------------------------------------------------------------'
         puts ' '
         choice = prompt.select("What do you want to do?", choices)
 
@@ -25,9 +23,8 @@ class Main_menu
                 help = Help_menu.new
                 help.instructions
             when 3
-                puts '+---------+'.colorize(:green)
-                puts '| Goodbye |'.colorize(:green)
-                puts '+---------+'.colorize(:green)
+                puts ' '
+                puts 'Goodbye'.colorize(:cyan)
                 sleep(1)
                 Clean_up.clear_screen
                 begin

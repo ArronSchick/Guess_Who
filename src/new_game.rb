@@ -18,10 +18,9 @@ class New_game
     end
 
     def user_name
-        title = Artii::Base.new :font => 'slant'
-        puts title.asciify('Guess Who?')
+        Clean_up.heading
         prompt = TTY::Prompt.new
-        puts '---------------------------------------------------------------------'
+        puts '-----------------------------------------------------------------------------'
         puts ' '
         @name = prompt.ask("What is your name?")
         Clean_up.clear_screen
@@ -30,10 +29,8 @@ class New_game
     def display_table
         until @guess_counter == 0 && @correct_guess == @secret_character
 
-            Clean_up.clear_screen
-            title = Artii::Base.new :font => 'slant'
-            puts title.asciify('Guess Who?')
-            puts '---------------------------------------------------------------------'
+            Clean_up.heading
+            puts '-----------------------------------------------------------------------------'
             puts ' '
             puts @name.colorize(:green)
             puts ' '
@@ -45,19 +42,21 @@ class New_game
             prompt = TTY::Prompt.new
             choices = {Guess: 1, Check: 2, Quit: 3}
             puts ' '
-            puts '---------------------------------------------------------------------'
+            puts '-----------------------------------------------------------------------------'
             puts ' '
             choice = prompt.select("Make a Guess or check an attribute?", choices)
 
              if choice == 1
                 guess_prompt = TTY::Prompt.new
-                guesses = @character_names
+                names = Characters.names
+                guesses = names
                 puts ' '
                 make_guess = guess_prompt.select("Who do you think it is?", guesses)
 
                 elsif choice == 2
                 attribute_prompt = TTY::Prompt.new
-                attributes = @character_attributes
+                attributes_choices = Characters.attributes
+                attributes = attributes_choices
                 puts ' '
                 check = attribute_prompt.select("Which attribute do you want to check?", attributes)
                 else start = Main_menu.new
