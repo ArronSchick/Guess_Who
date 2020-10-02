@@ -7,14 +7,12 @@ require 'artii'
 class Help_menu
     def instructions
         Clean_up.clear_screen
-        title = Artii::Base.new :font => 'slant'
-        puts title.asciify('Help').colorize(:cyan)
+        Clean_up.heading
 
         prompt = TTY::Prompt.new
-
         puts '-----------------------------------------------------------------------------'
         puts ' '
-        puts 
+        puts 'INSTRUCTIONS'.colorize(:lightblue)
         prompt.keypress("Press ANY key to return to main menu")
         Clean_up.clear_screen
         start = Main_menu.new

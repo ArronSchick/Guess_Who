@@ -7,6 +7,7 @@ require 'artii'
 
 class Main_menu
     def commands
+        Clean_up.clear_screen
         Clean_up.heading
         prompt = TTY::Prompt.new
 

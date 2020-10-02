@@ -9,12 +9,12 @@ class New_game
 
     def initialize
         @name
-        @table
         @guess_counter = 2
         @guess = nil
         @attribute = nil
         @choice = nil
         @eliminated = ["eliminated".colorize(:red), "eliminated".colorize(:red), "eliminated".colorize(:red), "eliminated".colorize(:red),]
+        @end = false
     end
 
     def user_name
@@ -27,18 +27,20 @@ class New_game
     end
     
     def display_table
-        until @guess_counter == 0 && @correct_guess == @secret_character
+        until @end == true
 
             Clean_up.heading
             puts '-----------------------------------------------------------------------------'
             puts ' '
-            puts @name.colorize(:green)
+            puts @name.colorize(:cyan)
             puts ' '
             puts "#{@guess_counter} Guesses left".colorize(:red)
             puts ' '
 
             Characters.character_list
-            
+            secret = Characters.secret
+            p secret
+
             prompt = TTY::Prompt.new
             choices = {Guess: 1, Check: 2, Quit: 3}
             puts ' '
@@ -48,19 +50,20 @@ class New_game
 
              if choice == 1
                 guess_prompt = TTY::Prompt.new
-                names = Characters.names
-                guesses = names
+                guesses = Characters.names
+                
                 puts ' '
                 make_guess = guess_prompt.select("Who do you think it is?", guesses)
 
                 elsif choice == 2
                 attribute_prompt = TTY::Prompt.new
                 attributes_choices = Characters.attributes
-                attributes = attributes_choices
+
                 puts ' '
                 check = attribute_prompt.select("Which attribute do you want to check?", attributes)
                 else start = Main_menu.new
                     start.commands
+
             end
         end
     end

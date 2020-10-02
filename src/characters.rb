@@ -18,8 +18,11 @@ module Characters
         puts @table.render(:ascii, alignment: [:center], width: 80, resize: true, multiline: true)
     end
 
+    def self.secret
+        selected = @character_list.sample
+    end
+
     def self.names
-        # @character_names = 
         { Peter: "Peter", Adrew: "Andrew", Jin: "Jin", Minho: "Minho", Terry: "Terry", Scott: "Scott", Kate: "Kate", Anna: "Anna", Hye_Jin: "Hye Jin", Yi_seo: "Yi Seo", Da_hae: "Da Hae", Rachel: "Rachel" }
     end
 
