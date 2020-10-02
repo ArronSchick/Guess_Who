@@ -34,12 +34,4 @@ module Characters
         { red_hair: "Red Hair", brown_hair: "Brown Hair", black_hair: "Black Hair", blond_hair: "Blond Hair", blue_eyes: "Blue Eyes", brown_eyes: "Brown Eyes", green_eyes: "Green Eyes", big_nose: "Big Nose", small_nose: "Small Nose" }
     end
 
-    def self.keep
-        
-    end
-
-    def self.eliminate
-
-    end
-
 end

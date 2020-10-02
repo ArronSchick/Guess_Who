@@ -8,10 +8,12 @@ require 'artii'
 class New_game
 
     def new_game
-        @name
+        @name = nil
         @guess_counter = 2
         @eliminated = ["eliminated".colorize(:red), "eliminated".colorize(:red), "eliminated".colorize(:red), "eliminated".colorize(:red),]
-        @end = false   
+        @end = false
+        @already_checked = []
+        @already_guessed = []
     end
 
     def user_name
@@ -27,15 +29,7 @@ class New_game
         Characters.character_list
         @secret = Characters.secret 
     end
-
-    def guess
-        Characters.guess(@guess)
-    end
-
-    def check
-        Characters.check(@check)
-    end
-
+        
     def display_table
         until @end == true
             
@@ -59,10 +53,13 @@ class New_game
             choice = prompt.select("Make a GUESS or CHECK an attribute?".colorize(:yellow), choices)
 
              if choice == 1
+                puts 'Guessed'.colorize(:red)
+                puts @already_guessed
                 guess_prompt = TTY::Prompt.new
                 guesses = Characters.names
                 puts ' '
                 @guess = guess_prompt.select("Who do you think it is?".colorize(:yellow), guesses)
+                @already_guessed << @guess
                     if @secret.include?(@guess)
                         @end = true
                     else @guess_counter -= 1
@@ -73,11 +70,14 @@ class New_game
                     end
 
                 elsif choice == 2
+                puts 'Checked'.colorize(:red)
+                puts @already_checked
                 attribute_prompt = TTY::Prompt.new
                 attribute_choices = Characters.attributes
                 puts ' '
                 @check = attribute_prompt.select("Which attribute do you want to check?".colorize(:yellow), attribute_choices)
-
+                @already_checked << @check
+                
 
                 else start = Main_menu.new
                     start.commands
