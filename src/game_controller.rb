@@ -11,5 +11,6 @@ class Game_controller
         game.user_name
         game.set_secret
         game.display_table
+        game.game_end
     end
 end
