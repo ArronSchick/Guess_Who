@@ -7,14 +7,11 @@ require 'artii'
 
 class New_game
 
-    def initialize
+    def new_game
         @name
         @guess_counter = 2
-        @guess = nil
-        @attribute = nil
-        @choice = nil
         @eliminated = ["eliminated".colorize(:red), "eliminated".colorize(:red), "eliminated".colorize(:red), "eliminated".colorize(:red),]
-        @end = false
+        @end = false   
     end
 
     def user_name
@@ -22,45 +19,66 @@ class New_game
         prompt = TTY::Prompt.new
         puts '-----------------------------------------------------------------------------'
         puts ' '
-        @name = prompt.ask("What is your name?")
+        @name = prompt.ask("What is your name?".colorize(:yellow))
         Clean_up.clear_screen
     end
     
+    def set_secret
+        Characters.character_list
+        @secret = Characters.secret 
+    end
+
+    def guess
+        Characters.guess(@guess)
+    end
+
+    def check
+        Characters.check(@check)
+    end
+
     def display_table
         until @end == true
-
+            
+            Clean_up.clear_screen
             Clean_up.heading
             puts '-----------------------------------------------------------------------------'
+            p @secret
             puts ' '
-            puts @name.colorize(:cyan)
+            puts @name.colorize(:magenta)
             puts ' '
             puts "#{@guess_counter} Guesses left".colorize(:red)
             puts ' '
 
-            Characters.character_list
-            secret = Characters.secret
-            p secret
+            Characters.display
 
             prompt = TTY::Prompt.new
             choices = {Guess: 1, Check: 2, Quit: 3}
             puts ' '
             puts '-----------------------------------------------------------------------------'
             puts ' '
-            choice = prompt.select("Make a Guess or check an attribute?", choices)
+            choice = prompt.select("Make a GUESS or CHECK an attribute?".colorize(:yellow), choices)
 
              if choice == 1
                 guess_prompt = TTY::Prompt.new
                 guesses = Characters.names
-                
                 puts ' '
-                make_guess = guess_prompt.select("Who do you think it is?", guesses)
+                @guess = guess_prompt.select("Who do you think it is?".colorize(:yellow), guesses)
+                    if @secret.include?(@guess)
+                        @end = true
+                    else @guess_counter -= 1
+                        if @guess_counter == 0
+                            @end = true
+                        end
+                        next
+                    end
 
                 elsif choice == 2
                 attribute_prompt = TTY::Prompt.new
-                attributes_choices = Characters.attributes
-
+                attribute_choices = Characters.attributes
                 puts ' '
-                check = attribute_prompt.select("Which attribute do you want to check?", attributes)
+                @check = attribute_prompt.select("Which attribute do you want to check?".colorize(:yellow), attribute_choices)
+
+
                 else start = Main_menu.new
                     start.commands
 

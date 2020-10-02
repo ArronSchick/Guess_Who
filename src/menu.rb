@@ -25,7 +25,7 @@ class Main_menu
                 help.instructions
             when 3
                 puts ' '
-                puts 'Goodbye'.colorize(:cyan)
+                puts 'Goodbye'.colorize(:magenta)
                 sleep(1)
                 Clean_up.clear_screen
                 begin

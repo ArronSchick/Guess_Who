@@ -15,11 +15,15 @@ module Characters
 
         @table = TTY::Table.new
         @character_list.each {|person| @table << person}
-        puts @table.render(:ascii, alignment: [:center], width: 80, resize: true, multiline: true)
+        @display = @table.render(:ascii, alignment: [:center], width: 80, resize: true, multiline: true)
     end
 
     def self.secret
-        selected = @character_list.sample
+        @selected = @character_list.sample
+    end
+
+    def self.display
+        puts @display
     end
 
     def self.names
@@ -29,4 +33,13 @@ module Characters
     def self.attributes
         { red_hair: "Red Hair", brown_hair: "Brown Hair", black_hair: "Black Hair", blond_hair: "Blond Hair", blue_eyes: "Blue Eyes", brown_eyes: "Brown Eyes", green_eyes: "Green Eyes", big_nose: "Big Nose", small_nose: "Small Nose" }
     end
+
+    def self.keep
+        
+    end
+
+    def self.eliminate
+
+    end
+
 end
