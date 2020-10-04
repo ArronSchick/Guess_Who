@@ -14,7 +14,7 @@ class New_game
         @end = false
         @already_checked = []
         @already_guessed = []
-    
+        @guess = nil
         @character_list = [["Peter", "Red Hair", "Blue Eyes", "Big Nose"],
         ["Andrew", "Brown Hair", "Blue Eyes", "Small Nose"],
         ["Jin", "Black Hair", "Brown Eyes", "Small Nose"],
@@ -84,7 +84,7 @@ class New_game
                     puts ' '
                     @guess = guess_prompt.select("Who do you think it is?".colorize(:yellow), guesses)
                     @already_guessed << @guess
-                        if @secret.include?(@guess)
+                        if @secret.include?(@guess) == true
                             @end = true
                         else @guess_counter -= 1
                             if @guess_counter == 0
@@ -120,12 +120,12 @@ class New_game
             prompt = TTY::Prompt.new
             puts '-----------------------------------------------------------------------------'
             puts ' '
-            if @guess == @secret
+            if @secret.include?(@guess) == true
                 puts "You were right it was #{@secret[0]}".colorize(:light_cyan)
                 puts ' '
                 puts "Congrtulations **#{@name}** YOU WON!".colorize(:light_cyan)
                 puts ' '
-            else 
+            else
                 puts "Sorry. It was #{@secret[0]}".colorize(:light_cyan)
                 puts ' '
                 puts "Better luck next time.  **#{@name}**".colorize(:light_cyan)
