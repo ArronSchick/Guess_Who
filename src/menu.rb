@@ -51,6 +51,12 @@ class Main_menu
             puts "Exiting application".colorize(:red)
             sleep(1)
             exit
+        rescue StandardError => e
+            puts "An error occurred: #{e.inspect}".colorize(:red)
+            sleep(0.5)
+            puts "Exiting application".colorize(:red)
+            sleep(1)
+            exit
         end
     end
 end

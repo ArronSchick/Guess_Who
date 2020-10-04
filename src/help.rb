@@ -21,7 +21,7 @@ class Help_menu
             Clean_up.clear_screen
             start = Main_menu.new
             start.commands
-            
+
         rescue NoMethodError => e
             puts "An error occurred: #{e.inspect}".colorize(:red)
             sleep(0.5)
@@ -29,6 +29,12 @@ class Help_menu
             sleep(1)
             exit
         rescue NameError => e
+            puts "An error occurred: #{e.inspect}".colorize(:red)
+            sleep(0.5)
+            puts "Exiting application".colorize(:red)
+            sleep(1)
+            exit
+        rescue StandardError => e
             puts "An error occurred: #{e.inspect}".colorize(:red)
             sleep(0.5)
             puts "Exiting application".colorize(:red)
