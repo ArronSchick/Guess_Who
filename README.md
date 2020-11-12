@@ -44,7 +44,7 @@ The user will discover how to interact with each of the programs features in a f
 
 ![Trello board](docs/Trello.png)
 
-![Trello deadlines](docs/Screen Shot 2020-10-02 at 6.05.34 pm.png)
+![Trello deadlines](docs/trello2.png)
 
 The link to my [Trello board is here](https://trello.com/invite/b/LxEJU9nQ/37fabf924561b929e1a002054ce58ad4/guess-who-app)
 
