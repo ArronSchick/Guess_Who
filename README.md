@@ -36,15 +36,15 @@ The user will discover how to interact with each of the programs features in a f
 
 ### Control Flow
 
-![Guess Who App Control Flow Diagram](/Users/arronschick/Documents/Programming/Coder_Academy/ArronSchick_T1A3/docs/Control_flow_Guess_Who.png)
+![Guess Who App Control Flow Diagram](docs/Control_flow_Guess_Who.png)
 
 
 
 ### Implementation plan
 
-![Trello board](/Users/arronschick/Documents/Programming/Coder_Academy/ArronSchick_T1A3/docs/Trello.png)
+![Trello board](docs/Trello.png)
 
-![Trello deadlines](/Users/arronschick/Documents/Programming/Coder_Academy/ArronSchick_T1A3/docs/Screen Shot 2020-10-02 at 6.05.34 pm.png)
+![Trello deadlines](docs/Screen Shot 2020-10-02 at 6.05.34 pm.png)
 
 The link to my [Trello board is here](https://trello.com/invite/b/LxEJU9nQ/37fabf924561b929e1a002054ce58ad4/guess-who-app)
 
